@@ -7,18 +7,21 @@ import { Layout } from "./Layout";
 import { PageHeader } from "./PageHeader";
 import { ToolFooter } from "./ToolFooter";
 import { Menu } from "./Menu";
-import { Ballot } from "./Ballot";
 
 import { ElectionListContainer } from "../containers/ElectionListContainer";
 import { ElectionFormContainer } from "../containers/ElectionFormContainer";
 import { VotersListContainer } from "../containers/VotersListContainer";
 import { VoterFormContainer } from "../containers/VoterFormContainer";
+import { VoterVerificationContainer } from "../containers/VoterVerificationContainer";
 
 export const App = () => {
   return (
     <Router>
       <Layout>
-        <PageHeader title="Ballot Badgers Online Voting" slogan="Be Aware, Do your Share!" />
+        <PageHeader
+          title="Ballot Badgers Online Voting"
+          slogan="Be Aware, Do your Share!"
+        />
         <Menu />
         <main>
           <Route path="/register-voter">
@@ -41,9 +44,9 @@ export const App = () => {
               <ElectionListContainer />
             </Provider>
           </Route>
-          <Route path="/elections/:electionId/voters/:voterId">
+          <Route path="/elections/:electionId/verifyVoter">
             <Provider store={electionStore}>
-              <Ballot/>
+              <VoterVerificationContainer />
             </Provider>
           </Route>
           <Route path="/" exact>

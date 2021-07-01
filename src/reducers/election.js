@@ -1,13 +1,14 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
 import {
-  GET_ELECTION_REQUEST_ACTION, GET_ELECTION_DONE_ACTION,
-  GET_ELECTIONS_REQUEST_ACTION, GET_ELECTIONS_DONE_ACTION,
-  SUBMIT_BALLOT_REQUEST_ACTION, SUBMIT_BALLOT_DONE_ACTION
-} from '../actions/election';
+  GET_ELECTION_DONE_ACTION,
+  GET_ELECTIONS_DONE_ACTION,
+  SUBMIT_BALLOT_DONE_ACTION,
+} from "../actions/election";
 
 import {
-  REFRESH_VOTERS_DONE_ACTION
+  REFRESH_VOTERS_DONE_ACTION,
+  VERIFY_VOTER_DONE_ACTION,
 } from "../actions/voters";
 
 export const votersReducer = (voters = [], action) => {
@@ -32,7 +33,25 @@ export const electionsReducer = (elections = [], action) => {
   }
 };
 
+const voterVerificationReducer = (voterId = -1, action) => {
+  if (action.type === VERIFY_VOTER_DONE_ACTION) {
+    console.log(action.voterId);
+    return action.voterId;
+  }
+  return voterId;
+};
+
+const errorMessageReducer = (errorMessage = "", action) => {
+  if (action.type === VERIFY_VOTER_DONE_ACTION) {
+    console.log(action.errorMessage);
+    return action.errorMessage;
+  }
+  return errorMessage;
+};
+
 export const reducer = combineReducers({
   elections: electionsReducer,
   voters: votersReducer,
+  voterId: voterVerificationReducer,
+  errorMessage: errorMessageReducer,
 });
