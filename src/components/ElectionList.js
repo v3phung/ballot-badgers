@@ -28,7 +28,7 @@ export const ElectionList = ({ elections }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {elections.map(e => (
+                    {elections && elections.map(e => (
                         <tr key={e.id}>
                             <td>{e.name}</td>
                             <td><button type='button' onClick={() => navToBallot(e.id, 2)}>Vote Now</button></td>
