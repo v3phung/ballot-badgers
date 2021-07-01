@@ -26,7 +26,7 @@ export const App = () => {
           <Route path="/elections">
             <ElectionList />
           </Route>
-          <Route path="/vote">
+          <Route path="/election/:id/vote">
             <div>To register a vote for the selected election</div>
           </Route>
           <Route path="/" exact>
