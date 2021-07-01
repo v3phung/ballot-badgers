@@ -1,39 +1,44 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import { ballotBadgersStore } from "../stores/ballotBadgersStore";
+import { electionStore } from "../stores/election";
 
 import { Layout } from "./Layout";
 import { ToolHeader } from "./ToolHeader";
 import { ToolFooter } from "./ToolFooter";
+import { ElectionForm } from "./ElectionForm";
 import { Menu } from "./Menu";
-import {VotersListContainer } from "../containers/VotersListContainer";
+
+import { ElectionListContainer } from "../containers/ElectionListContainer";
+import { VotersListContainer } from "../containers/VotersListContainer";
 import { VoterFormContainer } from "../containers/VoterFormContainer";
 
 export const App = () => {
   return (
     <Router>
       <Layout>
-        <ToolHeader toolHeader="Ballot Badgers Online Voting" />
+        <ToolHeader title="Ballot Badgers Online Voting" slogan="Be Aware, Do your Share!" />
         <Menu />
         <main>
           <Route path="/register-voter">
-            <Provider store={ballotBadgersStore}>
+            <Provider store={electionStore}>
               <VoterFormContainer />
             </Provider>
           </Route>
           <Route path="/voters">
-            <Provider store={ballotBadgersStore}>
+            <Provider store={electionStore}>
               <VotersListContainer />
             </Provider>
           </Route>
           <Route path="/add-election">
-            <div>Page to create new election with questions</div>
+            <ElectionForm />
           </Route>
           <Route path="/elections">
-            <div>List elections with results</div>
+            <Provider store={electionStore}>
+              <ElectionListContainer />
+            </Provider>
           </Route>
-          <Route path="/vote">
+          <Route path="/election/:id/vote">
             <div>To register a vote for the selected election</div>
           </Route>
           <Route path="/" exact>

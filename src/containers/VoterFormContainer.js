@@ -3,7 +3,7 @@ import { ToolHeader } from "../components/ToolHeader";
 import { useDispatch } from "react-redux";
 import { useMemo } from "react";
 import { bindActionCreators } from "redux";
-import { addVoter } from "../actions/ballot-badgers";
+import { addVoter } from "../actions/voters";
 
 export const VoterFormContainer = () => {
     const dispatch = useDispatch();
