@@ -1,5 +1,12 @@
+import { VoterEditRow } from "./VoterEditRow";
+import { VoterViewRow } from "./VoterViewRow";
+
 export const VotersList = ({
-    voters
+    voters, editVoterId,
+    onEditVoter: editVoter,
+    onDeleteVoter: deleteVoter,
+    onUpdateVoter: updateVoter,
+    onCancelVoter: cancelVoter,
 }) => {
     return (
         <table>
@@ -17,16 +24,9 @@ export const VotersList = ({
             </thead>
             <tbody>
                 {voters.map((voter) => (
-                    <tr key={voter.id}>
-                        <td>{voter.id}</td>
-                        <td>{voter.firstName}</td>
-                        <td>{voter.lastName}</td>
-                        <td>{voter.address}</td>
-                        <td>{voter.city}</td>
-                        <td>{voter.birthday}</td>
-                        <td>{voter.email}</td>
-                        <td>{voter.phoneNumber}</td>
-                    </tr>
+                    voter.id === editVoterId
+                    ? <VoterEditRow voter={voter} key={voter.id} onUpdateVoter={updateVoter} onCancelVoter={cancelVoter}/>
+                    : <VoterViewRow voter={voter} key={voter.id} onEditVoter={editVoter} onDeleteVoter={deleteVoter} />
                 ))}
             </tbody>
         </table>

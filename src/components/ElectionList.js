@@ -4,7 +4,7 @@ export const ElectionList = ({ elections }) => {
     const [showResult, setShowResult] = useState(-1);
 
     const getElection = (id) => {
-        const currElection = elections.filter(c => c.id == id);
+        const currElection = elections.filter(c => c.id === id);
         setShowResult(currElection[0]);
     }
 
