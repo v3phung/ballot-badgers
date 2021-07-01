@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react';
+import { useMemo } from 'react';
 import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 

@@ -6,6 +6,18 @@ import {
   SUBMIT_BALLOT_REQUEST_ACTION, SUBMIT_BALLOT_DONE_ACTION
 } from '../actions/election';
 
+import {
+  REFRESH_VOTERS_DONE_ACTION
+} from "../actions/voters";
+
+export const votersReducer = (voters = [], action) => {
+  if (action.type === REFRESH_VOTERS_DONE_ACTION) {
+    return action.voters;
+  } else {
+    return voters;
+  }
+};
+
 export const electionsReducer = (elections = [], action) => {
   switch (action.type) {
     case GET_ELECTIONS_DONE_ACTION:
@@ -22,4 +34,5 @@ export const electionsReducer = (elections = [], action) => {
 
 export const Reducer = combineReducers({
   elections: electionsReducer,
+  voters: votersReducer,
 });

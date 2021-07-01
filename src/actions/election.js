@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-
 export const GET_ELECTION_REQUEST_ACTION = 'GET_ELECTION_REQUEST';
 export const GET_ELECTION_DONE_ACTION = 'GET_ELECTION_DONE';
 

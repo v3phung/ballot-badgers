@@ -1,4 +1,5 @@
 import { useElectionForm } from '../hooks/useElectionForm';
+import { ToolHeader } from './ToolHeader';
 
 export const ElectionForm = ({ onAddElection: addElection }) => {
     const getInitElectionForm = () => ({
@@ -24,7 +25,7 @@ export const ElectionForm = ({ onAddElection: addElection }) => {
 
     return (
         <>
-            <div>I am the election form</div>
+            <ToolHeader title='Create An Election' />
             <div>
                 <ul>
                     {

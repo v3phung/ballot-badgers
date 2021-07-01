@@ -1,19 +1,27 @@
 import { useForm } from "../hooks/useForm";
+import { useHistory } from "react-router-dom";
 
-const getInitRegisterVoterForm = () => ({
-    "first-name": '',
-    "last-name": '',
+const getInitVoterForm = {
+    "firstName": '',
+    "lastName": '',
     "address": '',
     "city": '',
     "birthday": '',
     "email": '',
-    "phone": '',
+    "phoneNumber": '',
+};
 
-});
+export const VoterForm = ({onSubmitVoter}) => {
+    const history = useHistory();
 
-export const RegisterVoterForm = () => {
-    //const [ form, change, resetForm] = useForm(getInitRegistrationForm())
-    const [ change ] = useForm(getInitRegisterVoterForm());
+    const [ voterForm, change, resetVoterForm] = useForm({...getInitVoterForm});
+
+    const submitVoter = () => {
+        onSubmitVoter(voterForm);
+        history.push("/")
+        resetVoterForm();
+    };
+
     return (
         <form>
             <div>
@@ -24,9 +32,9 @@ export const RegisterVoterForm = () => {
                 <input
                     type="text"
                     id="first-name-input"
-                    name="first-name"
-                    value={null}
-                    onChange={null}
+                    name="firstName"
+                    value={voterForm.firstName}
+                    onChange={change}
                 />
             </div>
             <div>
@@ -34,9 +42,9 @@ export const RegisterVoterForm = () => {
                 <input
                     type="text"
                     id="last-name-input"
-                    name="last-name"
-                    value={null}
-                    onChange={null}
+                    name="lastName"
+                    value={voterForm.lastName}
+                    onChange={change}
                 />
             </div>
             <div>
@@ -45,8 +53,8 @@ export const RegisterVoterForm = () => {
                     type="text"
                     id="address-input"
                     name="address"
-                    value={null}
-                    onChange={null}
+                    value={voterForm.address}
+                    onChange={change}
                 />
             </div>
             <div>
@@ -55,17 +63,17 @@ export const RegisterVoterForm = () => {
                     type="text"
                     id="city-input"
                     name="city"
-                    value={null}
-                    onChange={null}
+                    value={voterForm.city}
+                    onChange={change}
                 />
             </div>
             <div>
                 <label htmlFor="birthday-input">Birthday</label>
                 <input
-                    type="date"
+                    type="text"
                     id="birthday-input"
                     name="birthday"
-                    value={null}
+                    value={voterForm.birthday}
                     onChange={change}
                 />
             </div>
@@ -75,7 +83,7 @@ export const RegisterVoterForm = () => {
                     type="text"
                     id="email-input"
                     name="email"
-                    value={null}
+                    value={voterForm.email}
                     onChange={change}
                 />
             </div>
@@ -84,11 +92,17 @@ export const RegisterVoterForm = () => {
                 <input
                     type="text"
                     id="phone-input"
-                    name="phone"
-                    value={null}
+                    name="phoneNumber"
+                    value={voterForm.phoneNumber}
                     onChange={change}
                 />
             </div>
+            <button
+                type="button"
+                onClick={submitVoter}
+            >
+                Complete Registration
+            </button>
         </form>
     );
 };

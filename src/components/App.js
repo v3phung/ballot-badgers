@@ -1,15 +1,18 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import { electionStore } from "../stores/election";
+
 import { Layout } from "./Layout";
 import { ToolHeader } from "./ToolHeader";
 import { ToolFooter } from "./ToolFooter";
-import { ElectionList } from "./ElectionList";
-import { ElectionForm } from "./ElectionForm";
 import { Menu } from "./Menu";
-import { RegisterVoterForm } from "./RegisterVoterForm";
-import { electionStore } from "../stores/election";
-import { Provider } from 'react-redux';
+
 import { ElectionListContainer } from "../containers/ElectionListContainer";
 import { ElectionFormContainer } from "../containers/ElectionFormContainer";
+import { VotersListContainer } from "../containers/VotersListContainer";
+import { VoterFormContainer } from "../containers/VoterFormContainer";
+
 export const App = () => {
   return (
     <Router>
@@ -18,10 +21,14 @@ export const App = () => {
         <Menu />
         <main>
           <Route path="/register-voter">
-            <RegisterVoterForm />
+            <Provider store={electionStore}>
+              <VoterFormContainer />
+            </Provider>
           </Route>
           <Route path="/voters">
-            <div>List voters</div>
+            <Provider store={electionStore}>
+              <VotersListContainer />
+            </Provider>
           </Route>
           <Route path="/add-election">
             <Provider store={electionStore}>

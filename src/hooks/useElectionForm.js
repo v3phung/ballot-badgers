@@ -25,11 +25,6 @@ export const useElectionForm = (initialForm) => {
         })
     }
 
-    const createElection = () => {
-        setForm({})
-    }
-
-
     const resetForm = () => setForm({ ...initialForm });
 
     return [form, change, resetForm, addQuestion];
