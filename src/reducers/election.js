@@ -8,6 +8,8 @@ import {
 
 import {
   REFRESH_VOTERS_DONE_ACTION,
+  EDIT_VOTER_ACTION,
+  CANCEL_VOTER_ACTION,
   VERIFY_VOTER_DONE_ACTION,
 } from "../actions/voters";
 
@@ -17,6 +19,18 @@ export const votersReducer = (voters = [], action) => {
   } else {
     return voters;
   }
+};
+
+export const editVoterReducer = (editVoterId = -1, action) => {
+  if (action.type === EDIT_VOTER_ACTION) {
+    return action.voterId;
+  }
+
+  if ([REFRESH_VOTERS_DONE_ACTION, CANCEL_VOTER_ACTION].includes(action.type)) {
+    return -1;
+  }
+
+  return editVoterId;
 };
 
 export const electionsReducer = (elections = [], action) => {
@@ -54,4 +68,6 @@ export const reducer = combineReducers({
   voters: votersReducer,
   voterId: voterVerificationReducer,
   errorMessage: errorMessageReducer,
+
+  editVoterId: editVoterReducer,
 });

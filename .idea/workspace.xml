@@ -2,29 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="629d5677-dc94-49f2-94f3-c10dbff42ded" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actions/election.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Ballot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ElectionForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ElectionList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/ElectionListContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useElectionForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reducers/election.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/election.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/VoterEditRow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/VoterViewRow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/ballot-badgers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/voters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/VoterFormContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/VoterFormContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/voters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/voters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ElectionList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ElectionList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/VoterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/VoterForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/VotersList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/VotersList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/VotersListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/VotersListContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/ballot-badgers.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/ballotBadgersStore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/election.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/election.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625118950783</updated>
-      <workItem from="1625118951931" duration="17690000" />
+      <workItem from="1625118951931" duration="24585000" />
     </task>
     <servers />
   </component>

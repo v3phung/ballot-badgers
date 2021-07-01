@@ -2,13 +2,13 @@ import { useForm } from "../hooks/useForm";
 import { useHistory } from "react-router-dom";
 
 const getInitVoterForm = {
-    "firstName": '',
-    "lastName": '',
-    "address": '',
-    "city": '',
-    "birthday": '',
-    "email": '',
-    "phoneNumber": '',
+    firstName: '',
+    lastName: '',
+    address: '',
+    city: '',
+    birthday: '',
+    email: '',
+    phoneNumber: '',
 };
 
 export const VoterForm = ({onSubmitVoter}) => {

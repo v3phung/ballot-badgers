@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useMemo, useEffect } from 'react';
+import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from 'react-redux';
 
-import { refreshVoters } from "../actions/voters";
+import {createEditVoterAction, createCancelVoterAction,
+    refreshVoters, deleteVoter, updateVoter} from "../actions/voters";
 
 import { VotersList } from "../components/VotersList";
 import {ToolHeader} from "../components/ToolHeader";
@@ -9,7 +11,15 @@ import {ToolHeader} from "../components/ToolHeader";
 export const VotersListContainer = () => {
 
   const voters = useSelector(state => state.voters);
+  const editVoterId = useSelector(state => state.editVoterId);
   const dispatch = useDispatch();
+
+  const voterListActions = useMemo(() => bindActionCreators({
+      onEditVoter: createEditVoterAction,
+      onDeleteVoter: deleteVoter,
+      onUpdateVoter: updateVoter,
+      onCancelVoter: createCancelVoterAction,
+      }, dispatch), [dispatch])
 
   useEffect(() => {
       dispatch(refreshVoters());
@@ -18,7 +28,7 @@ export const VotersListContainer = () => {
   return (
       <>
         <ToolHeader toolHeader="Registered Voters List" />
-        <VotersList voters={voters} />
+        <VotersList voters={voters} editVoterId={editVoterId} {...voterListActions} />
       </>
 
   );

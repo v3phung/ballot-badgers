@@ -12,8 +12,8 @@ export const ElectionList = ({ elections }) => {
   };
 
   const history = useHistory();
-  const navToBallot = (electionId, voterId) => {
-    history.push(`/elections/${electionId}/verifyVoter`);
+  const navToBallot = (electionId) => {
+    history.push(`/elections/${electionId}`);
   };
 
   return (
@@ -33,7 +33,7 @@ export const ElectionList = ({ elections }) => {
               <tr key={e.id}>
                 <td>{e.name}</td>
                 <td>
-                  <button type="button" onClick={() => navToBallot(e.id, 2)}>
+                  <button type="button" onClick={() => navToBallot(e.id)}>
                     Vote Now
                   </button>
                 </td>
@@ -45,33 +45,18 @@ export const ElectionList = ({ elections }) => {
               </tr>
             ))}
         </tbody>
-      </table>
-      {showResult !== -1 ? (
-        <div>
-          <ToolHeader title={showResult.name + " Election Results"} />
-          <table className="custom-table">
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th>Yes</th>
-                <th>No</th>
-                <th>Total</th>
-              </tr>
-            </thead>
 
-            <tbody>
-              {showResult.questions.map((q) => (
-                <tr>
-                  <td>{q.text}</td>
-                  <td>{q.yesVotes}</td>
-                  <td>{showResult.voterIds.length - q.yesVotes}</td>
-                  <td>{showResult.voterIds.length}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : null}
+        <tbody>
+          {showResult.questions.map((q) => (
+            <tr>
+              <td>{q.text}</td>
+              <td>{q.yesVotes}</td>
+              <td>{showResult.voterIds.length - q.yesVotes}</td>
+              <td>{showResult.voterIds.length}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };
