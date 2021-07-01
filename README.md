@@ -1,4 +1,5 @@
-![Ballot Badger](https://devint-intuitgroup.slack.com/files/U025AU8LJQN/F026XDPKALC/badger.jpeg?origin_team=TVAK24V6K&origin_channel=C027ETGEZ4Y)
+# ballot-badgers
+![Ballot Badger]()./public/badger.jpeg)
 
 # Getting Started with Create React App
 

@@ -1,0 +1,64 @@
+{
+    "voters": [
+        {
+            "id": 1,
+            "firstName": "John Q",
+            "lastName": "Citizen",
+            "address": "123 Main St",
+            "county": "Santa Clara, CA",
+            "birthdate": "2000-07-01",
+            "email": "johnq@citizen.org",
+            "phoneNumber": "123-456-7890",
+            "elections": []
+        },
+        {
+            "id": 2,
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "address": "1968 MLK Blvd SE",
+            "county": "Fulton, GA",
+            "birthdate": "1980-01-07",
+            "email": "jane@doe.org",
+            "phoneNumber": "890-567-1234",
+            "elections": []
+        }
+      ],
+    "elections": [
+        {
+            "id": 1,
+            "county": "Santa Clara, CA",
+            "questions": [1, 2]
+        },
+        {
+            "id": 2,
+            "county": "Fulton, CA",
+            "questions": [3, 4]
+        }
+    ],
+    "questions": [ //or should questions be nested inside of election so that vote totals wouldn't get muddled if a question were used across multiple elections
+        {
+            "id": 1,
+            "text": "Do you like dogs?",
+            "yesVotes": 50,
+            "totalVotes": 100
+        },
+        {
+            "id": 2,
+            "text": "Do you like cats?",
+            "yesVotes": 42,
+            "totalVotes": 98
+        },
+        {
+            "id": 3,
+            "text": "Do you like nature?",
+            "yesVotes": 93,
+            "totalVotes": 95
+        },
+        {
+            "id": 4,
+            "text": "Do you like food?",
+            "yesVotes": 100,
+            "totalVotes": 100
+        }
+    ]
+}
