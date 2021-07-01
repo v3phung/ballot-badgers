@@ -30,12 +30,12 @@
                 {
                     "id": 1,
                     "text": "Do you like dogs?",
-                    "yesVotes": 50
+                    "yesCnt": 50
                 },
                 {
                     "id": 2,
                     "text": "Do you like cats?",
-                    "yesVotes": 42
+                    "yesCnt": 42
                 }
             ]
         },
@@ -47,12 +47,12 @@
                 {
                     "id": 3,
                     "text": "Do you like nature?",
-                    "yesVotes": 93
+                    "yesCnt": 93
                 },
                 {
                     "id": 4,
                     "text": "Do you like food?",
-                    "yesVotes": 100
+                    "yesCnt": 100
                 }
             ]
         }
