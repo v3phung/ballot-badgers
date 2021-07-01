@@ -1,60 +1,71 @@
 {
-    "voters": [
+  "voters": [
+    {
+      "id": 1,
+      "firstName": "John Q",
+      "lastName": "Citizen",
+      "address": "123 Main St",
+      "city": "Santa Clara, CA",
+      "birthdate": "20000701",
+      "email": "johnq@citizen.org",
+      "phoneNumber": "123-456-7890"
+    },
+    {
+      "id": 2,
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "address": "1968 MLK Blvd SE",
+      "city": "Alanta, GA",
+      "birthdate": "19800107",
+      "email": "jane@doe.org",
+      "phoneNumber": "890-567-1234"
+    },
+
+    {
+      "firstName": "Luis",
+      "lastName": "Gonzales",
+      "address": "123 A st",
+      "city": "San Diego CA",
+      "birthday": "01-01-2000",
+      "email": "abc@abc.com",
+      "phoneNumber": "111-111-1234",
+      "id": 3
+    }
+  ],
+  "elections": [
+    {
+      "id": 1,
+      "name": "Foo",
+      "voterIds": [],
+      "questions": [
         {
-            "id": 1,
-            "firstName": "John Q",
-            "lastName": "Citizen",
-            "address": "123 Main St",
-            "city": "Santa Clara, CA",
-            "birthdate": "2000-07-01",
-            "email": "johnq@citizen.org",
-            "phoneNumber": "123-456-7890"
+          "id": 1,
+          "text": "Do you like dogs?",
+          "yesVotes": 50
         },
         {
-            "id": 2,
-            "firstName": "Jane",
-            "lastName": "Doe",
-            "address": "1968 MLK Blvd SE",
-            "city": "Alanta, GA",
-            "birthdate": "1980-01-07",
-            "email": "jane@doe.org",
-            "phoneNumber": "890-567-1234"
+          "id": 2,
+          "text": "Do you like cats?",
+          "yesVotes": 42
         }
-    ],
-    "elections": [
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bar",
+      "voterIds": [],
+      "questions": [
         {
-            "id": 1,
-            "name": "Foo",
-            "voterIds": [],
-            "questions": [
-                {
-                    "id": 1,
-                    "text": "Do you like dogs?",
-                    "yesVotes": 50
-                },
-                {
-                    "id": 2,
-                    "text": "Do you like cats?",
-                    "yesVotes": 42
-                }
-            ]
+          "id": 3,
+          "text": "Do you like nature?",
+          "yesVotes": 93
         },
         {
-            "id": 2,
-            "name": "Bar",
-            "voterIds": [],
-            "questions": [
-                {
-                    "id": 3,
-                    "text": "Do you like nature?",
-                    "yesVotes": 93
-                },
-                {
-                    "id": 4,
-                    "text": "Do you like food?",
-                    "yesVotes": 100
-                }
-            ]
+          "id": 4,
+          "text": "Do you like food?",
+          "yesVotes": 100
         }
-    ]
+      ]
+    }
+  ]
 }

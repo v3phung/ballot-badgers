@@ -1,9 +1,14 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import { ballotBadgersStore } from "../stores/ballotBadgersStore";
+
 import { Layout } from "./Layout";
 import { ToolHeader } from "./ToolHeader";
 import { ToolFooter } from "./ToolFooter";
 import { Menu } from "./Menu";
-import { RegisterVoterForm } from "./RegisterVoterForm";
+import {VotersListContainer } from "../containers/VotersListContainer";
+import { VoterFormContainer } from "../containers/VoterFormContainer";
 
 export const App = () => {
   return (
@@ -13,10 +18,14 @@ export const App = () => {
         <Menu />
         <main>
           <Route path="/register-voter">
-            <RegisterVoterForm />
+            <Provider store={ballotBadgersStore}>
+              <VoterFormContainer />
+            </Provider>
           </Route>
           <Route path="/voters">
-            <div>List voters</div>
+            <Provider store={ballotBadgersStore}>
+              <VotersListContainer />
+            </Provider>
           </Route>
           <Route path="/add-election">
             <div>Page to create new election with questions</div>

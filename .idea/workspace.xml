@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="629d5677-dc94-49f2-94f3-c10dbff42ded" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/RegisterVoterForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actions/ballot-badgers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/VotersList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/VoterFormContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/VotersListContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/ballot-badgers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/ballotBadgersStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegisterVoterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/VoterForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625118950783</updated>
-      <workItem from="1625118951931" duration="6902000" />
+      <workItem from="1625118951931" duration="16905000" />
     </task>
     <servers />
   </component>
