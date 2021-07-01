@@ -9,7 +9,7 @@ export const App = () => {
   return (
     <Router>
       <Layout>
-        <ToolHeader toolHeader="Ballot Badgers Online Voting" />
+        <ToolHeader title="Ballot Badgers Online Voting" slogan="Be Aware, Do your Share!"/>
         <Menu />
         <main>
           <Route path="/register-voter">
