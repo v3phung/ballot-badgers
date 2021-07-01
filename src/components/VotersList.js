@@ -2,7 +2,7 @@ export const VotersList = ({
     voters
 }) => {
     return (
-        <table>
+        <table className='custom-table'>
             <thead>
                 <tr>
                     <th>Id</th>
