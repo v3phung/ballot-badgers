@@ -9,6 +9,7 @@ import { RegisterVoterForm } from "./RegisterVoterForm";
 import { electionStore } from "../stores/election";
 import { Provider } from 'react-redux';
 import { ElectionListContainer } from "../containers/ElectionListContainer";
+import { ElectionFormContainer } from "../containers/ElectionFormContainer";
 export const App = () => {
   return (
     <Router>
@@ -23,7 +24,9 @@ export const App = () => {
             <div>List voters</div>
           </Route>
           <Route path="/add-election">
-            <ElectionForm />
+            <Provider store={electionStore}>
+              <ElectionFormContainer />
+            </Provider>
           </Route>
           <Route path="/elections">
             <Provider store={electionStore}>

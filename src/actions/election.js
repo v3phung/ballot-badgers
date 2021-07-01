@@ -1,8 +1,13 @@
+import { useDispatch } from 'react-redux';
+
 export const GET_ELECTION_REQUEST_ACTION = 'GET_ELECTION_REQUEST';
 export const GET_ELECTION_DONE_ACTION = 'GET_ELECTION_DONE';
 
 export const GET_ELECTIONS_REQUEST_ACTION = 'GET_ELECTIONS_REQUEST';
 export const GET_ELECTIONS_DONE_ACTION = 'GET_ELECTIONS_DONE';
+
+export const ADD_ELECTION_REQUEST_ACTION = 'ADD_ELECTION_REQUEST';
+export const ADD_ELECTION_DONE_ACTION = 'ADD_ELECTION_DONE';
 
 export const SUBMIT_BALLOT_REQUEST_ACTION = 'SUBMIT_BALLOT_REQUEST';
 export const SUBMIT_BALLOT_DONE_ACTION = 'SUBMIT_BALLOT_DONE';
@@ -24,12 +29,6 @@ export const getElection = (id) => {
   };
 };
 
-export const createGetElectionsRequestAction = () =>
-  ({ type: GET_ELECTIONS_REQUEST_ACTION });
-
-export const createGetElectionsDoneAction = (elections) =>
-  ({ type: GET_ELECTIONS_DONE_ACTION, elections });
-
 export const getElections = () => {
 
   return (dispatch) => {
@@ -41,7 +40,31 @@ export const getElections = () => {
   };
 };
 
+export const addElection = election => {
+  return dispatch => {
+    dispatch(createAddElectionRequestAction());
 
+    return fetch("http://localhost:3060/elections", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(election),
+    })
+      .then(() => dispatch(getElections()));
+  };
+
+}
+
+export const createAddElectionRequestAction = () =>
+  ({ type: ADD_ELECTION_REQUEST_ACTION });
+
+export const createAddElectionRequestDone = () =>
+  ({ type: ADD_ELECTION_DONE_ACTION });
+
+export const createGetElectionsRequestAction = () =>
+  ({ type: GET_ELECTIONS_REQUEST_ACTION });
+
+export const createGetElectionsDoneAction = (elections) =>
+  ({ type: GET_ELECTIONS_DONE_ACTION, elections });
 
 export const createSubmitBallotRequestAction = () =>
   ({ type: GET_ELECTIONS_REQUEST_ACTION });

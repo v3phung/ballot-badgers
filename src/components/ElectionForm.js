@@ -1,6 +1,6 @@
 import { useElectionForm } from '../hooks/useElectionForm';
 
-export const ElectionForm = () => {
+export const ElectionForm = ({ onAddElection: addElection }) => {
     const getInitElectionForm = () => ({
         name: '',
         currentQuestion: '',
@@ -10,9 +10,13 @@ export const ElectionForm = () => {
     const [electionForm, change, resetElectionForm, addQuestion] = useElectionForm(getInitElectionForm());
 
     const submitElection = () => {
-        console.log("submit");
-        console.log(electionForm.name)
-        console.log(electionForm.questions)
+        const finalElectionForm = {
+            name: electionForm.name,
+            questions: electionForm.questions,
+            voterIds: []
+        }
+        console.log(finalElectionForm);
+        addElection(finalElectionForm);
         resetElectionForm();
     }
 
