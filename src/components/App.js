@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Layout } from "./Layout";
 import { ToolHeader } from "./ToolHeader";
 import { ToolFooter } from "./ToolFooter";
+import { ElectionList } from "./ElectionList";
+import { ElectionForm } from "./ElectionForm";
 import { Menu } from "./Menu";
 
 export const App = () => {
@@ -18,10 +20,10 @@ export const App = () => {
             <div>List voters</div>
           </Route>
           <Route path="/add-election">
-            <div>Page to create new election with questions</div>
+            <ElectionForm />
           </Route>
           <Route path="/elections">
-            <div>List elections with results</div>
+            <ElectionList />
           </Route>
           <Route path="/vote">
             <div>To register a vote for the selected election</div>
