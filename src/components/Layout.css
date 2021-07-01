@@ -1,0 +1,91 @@
+body {
+  font-family: arial;
+}
+.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: grid;
+
+  grid-template-rows: 70px 40px 1fr 40px;
+  grid-template-columns: 4fr 1fr;
+
+  grid-template-areas:
+    "header header"
+    "menu menu"
+    "content content"
+    "footer footer";
+}
+
+.container > header,
+.container > footer {
+  background-color: gray;
+  color: white;
+}
+
+.header-block {
+  grid-area: header;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.page-header {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.container > nav {
+  grid-area: menu;
+  background-color: lightgrey;
+  color: black;
+  padding-left: 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 2px 6px;
+  margin: 0;
+}
+
+.container > main {
+  grid-area: content;
+  padding: 10px;
+}
+
+.container > aside {
+  grid-area: sidebar;
+  padding: 10px;
+}
+
+.container > footer {
+  grid-area: footer;
+  text-align: center;
+  padding-top: 6px;
+}
+
+.container > footer > small {
+  font-size: 0.8rem;
+}
+
+.menu-item > a,
+.menu-item > a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  text-decoration: underline;
+}
