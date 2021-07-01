@@ -3,16 +3,17 @@ import { Layout } from "./Layout";
 import { ToolHeader } from "./ToolHeader";
 import { ToolFooter } from "./ToolFooter";
 import { Menu } from "./Menu";
+import { RegisterVoterForm } from "./RegisterVoterForm";
 
 export const App = () => {
   return (
     <Router>
       <Layout>
-        <ToolHeader toolHeader="Online Voting" />
+        <ToolHeader toolHeader="Ballot Badgers Online Voting" />
         <Menu />
         <main>
           <Route path="/register-voter">
-            <div>Page to register voter</div>
+            <RegisterVoterForm />
           </Route>
           <Route path="/voters">
             <div>List voters</div>
