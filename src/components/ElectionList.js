@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 
 export const ElectionList = ({ elections }) => {
     const [showResult, setShowResult] = useState(-1);
@@ -8,22 +9,28 @@ export const ElectionList = ({ elections }) => {
         setShowResult(currElection[0]);
     }
 
+    const history = useHistory();
+    const navToBallot = (electionId, voterId) => {
+        history.push(`/elections/${electionId}/voters/${voterId}`);
+    };
+
     return (
         <>
-            <div>Election List</div>
+            <div>Active Elections</div>
             <table>
                 <tr>
                     <th>Name</th>
+                    <th>Vote</th>
                     <th>Results</th>
                 </tr>
                 {elections.map(e => (
                     <tr key={e.id}>
                         <td>{e.name}</td>
-                        <td><button type='button' onClick={() => { getElection(e.id) }}>View Results</button></td>
+                        <td><button type='button' onClick={() => navToBallot(e.id, 2)}>Vote Now</button></td>
+                        <td><button type='button' onClick={() => getElection(e.id)}>View Results</button></td>
                     </tr>
                 ))}
             </table>
-
             {
                 showResult !== -1 ?
                     <div>

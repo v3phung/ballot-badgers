@@ -32,7 +32,7 @@ export const electionsReducer = (elections = [], action) => {
   }
 };
 
-export const Reducer = combineReducers({
+export const reducer = combineReducers({
   elections: electionsReducer,
   voters: votersReducer,
 });

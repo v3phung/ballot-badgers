@@ -71,3 +71,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+==========
+The ballot should list the items under consideration with a checkbox next to each item. Checking the box is considered to be 'Yes', leaving it blank is a 'No'. You can do something more complex than a checkbox, but a checkbox is the minimum.
+
+When the ballot is completed, the user should click a 'Cast Vote' button. A success screen is shown with a button to return to the main screen.

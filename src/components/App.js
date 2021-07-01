@@ -8,6 +8,7 @@ import { ToolHeader } from "./ToolHeader";
 import { ToolFooter } from "./ToolFooter";
 import { ElectionForm } from "./ElectionForm";
 import { Menu } from "./Menu";
+import { Ballot } from "./Ballot";
 
 import { ElectionListContainer } from "../containers/ElectionListContainer";
 import { VotersListContainer } from "../containers/VotersListContainer";
@@ -33,13 +34,15 @@ export const App = () => {
           <Route path="/add-election">
             <ElectionForm />
           </Route>
-          <Route path="/elections">
+          <Route path="/elections" exact>
             <Provider store={electionStore}>
               <ElectionListContainer />
             </Provider>
           </Route>
-          <Route path="/election/:id/vote">
-            <div>To register a vote for the selected election</div>
+          <Route path="/elections/:electionId/voters/:voterId">
+            <Provider store={electionStore}>
+              <Ballot/>
+            </Provider>
           </Route>
           <Route path="/" exact>
             <div>Welcome to Online Voting</div>

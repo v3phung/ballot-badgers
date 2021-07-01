@@ -18,9 +18,6 @@ export const Menu = () => {
         <li className="menu-item">
           <Link to="/elections">Elections</Link>
         </li>
-        <li className="menu-item">
-          <Link to="/vote">Vote</Link>
-        </li>
       </ul>
     </nav>
   );
