@@ -27,21 +27,24 @@ export const ElectionForm = ({ onAddElection: addElection }) => {
         <>
             <ToolHeader title='Create An Election' />
             <div>
-                <ul>
-                    {
-                        electionForm.questions.map(c => (
-                            <li key={c.id}>{c.text}</li>
-                        ))
-                    }
-                </ul>
+                <div className='election-name-disp'>Election Name: {electionForm.name}</div>
+                <div className='election-questions-disp'>
+                    <ul>
+                        {
+                            electionForm.questions.map(c => (
+                                <li key={c.id}>{c.text}</li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
-            <form>
-                <div>
-                    <label htmlFor='name-input'>Election Name</label>
+            <form className='custom-form'>
+                <div className='form-element'>
+                    <label htmlFor='name-input'>Election Name: </label>
                     <input type='text' id='name-input' name="name" value={electionForm.name} onChange={change}></input>
                 </div>
                 <div>
-                    <label htmlFor='question-input'>Add Question</label>
+                    <label htmlFor='question-input'>Add Question: </label>
                     <input type='text' id='question-input' name='currentQuestion' value={electionForm.currentQuestion} onChange={change}></input>
                 </div>
                 <button type='button' onClick={addQuestion} >Add Question</button>

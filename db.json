@@ -39,6 +39,16 @@
       "email": "vp@abc.com",
       "phoneNumber": "123-455-1234",
       "id": 4
+    },
+    {
+      "firstName": "d",
+      "lastName": "d",
+      "address": "d",
+      "city": "d",
+      "birthday": "d",
+      "email": "d",
+      "phoneNumber": "d",
+      "id": 5
     }
   ],
   "elections": [
@@ -75,6 +85,23 @@
           "yesVotes": 100
         }
       ]
+    },
+    {
+      "name": "Amit's Election",
+      "questions": [
+        {
+          "id": 1,
+          "text": "do you like soda?",
+          "yesVotes": 0
+        },
+        {
+          "id": 2,
+          "text": "do you like water?",
+          "yesVotes": 0
+        }
+      ],
+      "voterIds": [],
+      "id": 3
     }
   ]
 }

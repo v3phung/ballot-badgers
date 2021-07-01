@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { electionStore } from "../stores/election";
 
 import { Layout } from "./Layout";
-import { ToolHeader } from "./ToolHeader";
+import { PageHeader } from "./PageHeader";
 import { ToolFooter } from "./ToolFooter";
 import { Menu } from "./Menu";
 
@@ -17,7 +17,7 @@ export const App = () => {
   return (
     <Router>
       <Layout>
-        <ToolHeader title="Ballot Badgers Online Voting" slogan="Be Aware, Do your Share!" />
+        <PageHeader title="Ballot Badgers Online Voting" slogan="Be Aware, Do your Share!" />
         <Menu />
         <main>
           <Route path="/register-voter">

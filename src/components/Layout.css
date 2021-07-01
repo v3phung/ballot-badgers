@@ -7,7 +7,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-
   display: grid;
 
   grid-template-rows: 70px 40px 1fr 40px;
@@ -34,13 +33,13 @@ body {
 }
 
 .page-header {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .logo {
   margin: 1rem;
-  height: 100%;
+  height: 70%;
   object-fit: contain;
 }
 
@@ -50,10 +49,8 @@ body {
 
 .container > nav {
   grid-area: menu;
-  background-color: lightgrey;
-  color: black;
+  background-color: black;
   padding-left: 10px;
-
   display: flex;
   align-items: center;
 }
@@ -63,6 +60,7 @@ body {
   display: flex;
   padding: 0;
   margin: 0;
+  font-size: .7rem;
 }
 
 .menu-item {
@@ -92,10 +90,47 @@ body {
 
 .menu-item > a,
 .menu-item > a:visited {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
 .menu-item:hover {
   text-decoration: underline;
+}
+
+.custom-form {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-form > button ,
+.custom-form .form-element{
+  margin: 10px;
+}
+
+.view-block {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-table {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+
+
+.custom-table > thead > tr > th,
+.custom-table > tbody > tr > td {
+  padding:0.5rem;
+}
+
+.election-name-disp,
+.election-questions-disp {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
