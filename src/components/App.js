@@ -5,16 +5,17 @@ import { ToolFooter } from "./ToolFooter";
 import { ElectionList } from "./ElectionList";
 import { ElectionForm } from "./ElectionForm";
 import { Menu } from "./Menu";
+import { RegisterVoterForm } from "./RegisterVoterForm";
 
 export const App = () => {
   return (
     <Router>
       <Layout>
-        <ToolHeader toolHeader="Online Voting" />
+        <ToolHeader title="Ballot Badgers Online Voting" slogan="Be Aware, Do your Share!" />
         <Menu />
         <main>
           <Route path="/register-voter">
-            <div>Page to register voter</div>
+            <RegisterVoterForm />
           </Route>
           <Route path="/voters">
             <div>List voters</div>

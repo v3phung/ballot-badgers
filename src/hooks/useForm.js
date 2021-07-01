@@ -1,14 +1,12 @@
-
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useForm = (initialForm) => {
-
     const [form, setForm] = useState({ ...initialForm });
 
     const change = e => {
         setForm({
             ...form,
-            [e.target.name]: e.target.value,
+            [e.target.name]: [e.target.value],
         });
     };
 
