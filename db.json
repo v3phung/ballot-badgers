@@ -35,7 +35,7 @@
             "questions": [3, 4]
         }
     ],
-    "questions": [ //or should questions be nested inside of election so that vote totals wouldn't get muddled if a question were used across multiple elections
+    "questions": [
         {
             "id": 1,
             "text": "Do you like dogs?",
