@@ -20,22 +20,6 @@ export const electionsReducer = (elections = [], action) => {
   }
 };
 
-export const editCarIdReducer = (editCarId = -1, action) => {
-
-  if (action.type === EDIT_CAR_ACTION) {
-    return action.carId;
-  }
-
-  if ([
-    ADD_CAR_DONE_ACTION, SAVE_CAR_DONE_ACTION,
-    DELETE_CAR_DONE_ACTION, CANCEL_CAR_ACTION
-  ].includes(action.type)) {
-    return -1;
-  }
-
-  return editCarId;
-};
-
 export const Reducer = combineReducers({
   elections: electionsReducer,
 });
