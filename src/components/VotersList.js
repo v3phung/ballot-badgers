@@ -9,7 +9,7 @@ export const VotersList = ({
     onCancelVoter: cancelVoter,
 }) => {
     return (
-        <table>
+        <table className='custom-table'>
             <thead>
                 <tr>
                     <th>Id</th>

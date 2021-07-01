@@ -5,7 +5,7 @@ export const useElectionForm = (initialForm) => {
     const change = e => {
         setForm({
             ...form,
-            [e.target.name]: [e.target.value],
+            [e.target.name]: e.target.value,
         });
     };
 
@@ -24,11 +24,6 @@ export const useElectionForm = (initialForm) => {
             questions: [...newQuestionList]
         })
     }
-
-    const createElection = () => {
-        setForm({})
-    }
-
 
     const resetForm = () => setForm({ ...initialForm });
 

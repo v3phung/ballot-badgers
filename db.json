@@ -65,6 +65,23 @@
           "yesVotes": 100
         }
       ]
+    },
+    {
+      "name": "Amit's Election",
+      "questions": [
+        {
+          "id": 1,
+          "text": "do you like soda?",
+          "yesVotes": 0
+        },
+        {
+          "id": 2,
+          "text": "do you like water?",
+          "yesVotes": 0
+        }
+      ],
+      "voterIds": [],
+      "id": 3
     }
   ]
 }
