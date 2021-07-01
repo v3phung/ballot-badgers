@@ -4,14 +4,14 @@ import { useState } from 'react';
 import { useElection } from '../hooks/useElection';
 
 export const Ballot = () => {
-    const { electionId, voterId } = useParams();
+    const { electionId } = useParams();
     // use id to get specific election
     // maintain "form" state directly in component?
     // if so... is array of bools?
     const [form, setForm] = useState({});// form as obj keyed by question.id
 
     const {elections, submitBallot} = useElection();
-    const election = elections[electionId];
+    const election = elections.find(e => e.id === Number(electionId));
 
     return (
         <div>

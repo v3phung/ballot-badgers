@@ -12,8 +12,8 @@ export const ElectionList = ({ elections }) => {
     }
 
     const history = useHistory();
-    const navToBallot = (electionId, voterId) => {
-        history.push(`/elections/${electionId}/voters/${voterId}`);
+    const navToBallot = (electionId) => {
+        history.push(`/elections/${electionId}`);
     };
 
     return (
@@ -31,7 +31,7 @@ export const ElectionList = ({ elections }) => {
                     {elections && elections.map(e => (
                         <tr key={e.id}>
                             <td>{e.name}</td>
-                            <td><button type='button' onClick={() => navToBallot(e.id, 2)}>Vote Now</button></td>
+                            <td><button type='button' onClick={() => navToBallot(e.id)}>Vote Now</button></td>
                             <td><button type='button' onClick={() => getElection(e.id)}>View Results</button></td>
                         </tr>
                     ))}

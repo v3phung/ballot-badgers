@@ -41,7 +41,7 @@ export const App = () => {
               <ElectionListContainer />
             </Provider>
           </Route>
-          <Route path="/elections/:electionId/voters/:voterId">
+          <Route path="/elections/:electionId">
             <Provider store={electionStore}>
               <Ballot/>
             </Provider>
