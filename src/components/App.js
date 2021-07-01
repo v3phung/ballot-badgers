@@ -6,7 +6,9 @@ import { ElectionList } from "./ElectionList";
 import { ElectionForm } from "./ElectionForm";
 import { Menu } from "./Menu";
 import { RegisterVoterForm } from "./RegisterVoterForm";
-
+import { electionStore } from "../stores/election";
+import { Provider } from 'react-redux';
+import { ElectionListContainer } from "../containers/ElectionListContainer";
 export const App = () => {
   return (
     <Router>
@@ -24,7 +26,9 @@ export const App = () => {
             <ElectionForm />
           </Route>
           <Route path="/elections">
-            <ElectionList />
+            <Provider store={electionStore}>
+              <ElectionListContainer />
+            </Provider>
           </Route>
           <Route path="/election/:id/vote">
             <div>To register a vote for the selected election</div>

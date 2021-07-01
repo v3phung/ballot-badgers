@@ -2,9 +2,9 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-import { electionReducer } from '../reducers/election';
+import { Reducer } from '../reducers/election';
 
 export const electionStore = createStore(
-    electionReducer,
+    Reducer,
     composeWithDevTools(applyMiddleware(thunk)),
 );

@@ -1,42 +1,12 @@
+import { useState } from 'react';
 
-export const ElectionList = () => {
+export const ElectionList = ({ elections }) => {
+    const [showResult, setShowResult] = useState(-1);
 
-    const initialElections = [
-        {
-            id: 1,
-            name: "Foo",
-            voterIds: [],
-            questions: [
-                {
-                    id: 1,
-                    text: "Do you like dogs?",
-                    yesVotes: 50
-                },
-                {
-                    id: 2,
-                    text: "Do you like cats?",
-                    yesVotes: 42
-                }
-            ]
-        },
-        {
-            id: 2,
-            name: "Bar",
-            voterIds: [],
-            questions: [
-                {
-                    id: 3,
-                    text: "Do you like nature?",
-                    yesVotes: 93
-                },
-                {
-                    id: 4,
-                    text: "Do you like food?",
-                    yesVotes: 100
-                }
-            ]
-        }
-    ]
+    const getElection = (id) => {
+        const currElection = elections.filter(c => c.id == id);
+        setShowResult(currElection[0]);
+    }
 
     return (
         <>
@@ -46,14 +16,50 @@ export const ElectionList = () => {
                     <th>Name</th>
                     <th>Results</th>
                 </tr>
-                {initialElections.map(e => (
-                    <tr>
+                {elections.map(e => (
+                    <tr key={e.id}>
                         <td>{e.name}</td>
-                        <td><button type='button' onClick={() => { }}>View Results</button></td>
+                        <td><button type='button' onClick={() => { getElection(e.id) }}>View Results</button></td>
                     </tr>
                 ))}
             </table>
+
+            {
+                showResult !== -1 ?
+                    <div>
+                        <h1>{showResult.name} Results</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Yes</th>
+                                    <th>No</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {
+                                    showResult.questions.map(q => (
+                                        <tr>
+                                            <td>{q.text}</td>
+                                            <td>{q.yesCnt}</td>
+                                            <td>{showResult.voterIds.length - q.yesCnt}</td>
+                                            <td>{showResult.voterIds.length}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    :
+                    null
+            }
         </>
     )
+
+
 
 };

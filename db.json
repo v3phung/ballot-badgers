@@ -24,35 +24,47 @@
     "elections": [
         {
             "id": 1,
-            "name": "Foo",
-            "voterIds": [],
+            "name": "Fooz",
+            "voterIds": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
             "questions": [
                 {
                     "id": 1,
                     "text": "Do you like dogs?",
-                    "yesCnt": 50
+                    "yesCnt": 2
                 },
                 {
                     "id": 2,
                     "text": "Do you like cats?",
-                    "yesCnt": 42
+                    "yesCnt": 3
                 }
             ]
         },
         {
             "id": 2,
             "name": "Bar",
-            "voterIds": [],
+            "voterIds": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
             "questions": [
                 {
                     "id": 3,
                     "text": "Do you like nature?",
-                    "yesCnt": 93
+                    "yesCnt": 1
                 },
                 {
                     "id": 4,
                     "text": "Do you like food?",
-                    "yesCnt": 100
+                    "yesCnt": 5
                 }
             ]
         }
