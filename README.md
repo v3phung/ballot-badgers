@@ -1,5 +1,5 @@
 # ballot-badgers
-![Ballot Badger]()./public/badger.jpeg)
+![Ballot Badger](./public/badger.jpeg)
 
 # Getting Started with Create React App
 
