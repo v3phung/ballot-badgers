@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="629d5677-dc94-49f2-94f3-c10dbff42ded" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/VoterEditRow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/VoterViewRow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/voters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/voters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ElectionList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ElectionList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/VoterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/VoterForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/VoterViewRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/VoterViewRow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/VotersList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/VotersList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/VotersListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/VotersListContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/election.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/election.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625118950783</updated>
-      <workItem from="1625118951931" duration="24585000" />
+      <workItem from="1625118951931" duration="32400000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,22 @@ export const VotersList = ({
     onCancelVoter: cancelVoter,
     onSetVoterSort: setVoterSort,
 }) => {
+    const deleteVotersList = [];
 
+    // Save a list of multiple voters to be deleted
+    const onToggleSelectedVoter = (voterId) => {
+
+        if (deleteVotersList.includes(voterId)) {
+            deleteVotersList.filter(v => v === voterId);
+        } else {
+            deleteVotersList.push(voterId);
+        }
+    };
+
+    // Delete multiple voters
+    const deleteSelectedVoters = () => {
+        deleteVotersList.forEach(e => deleteVoter(e));
+    }
 
     return (
         <>
@@ -66,10 +81,16 @@ export const VotersList = ({
                     {voters.map((voter) => (
                         voter.id === editVoterId
                             ? <VoterEditRow voter={voter} key={voter.id} onUpdateVoter={updateVoter} onCancelVoter={cancelVoter} />
-                            : <VoterViewRow voter={voter} key={voter.id} onEditVoter={editVoter} onDeleteVoter={deleteVoter} />
+                            : <VoterViewRow voter={voter} key={voter.id}
+                                            onEditVoter={editVoter} onDeleteVoter={deleteVoter}
+                                            deleteVoters={deleteVoter} onToggleSelectedVoter={onToggleSelectedVoter}/>
                     ))}
                 </tbody>
             </table >
+
+            <button type="button" onClick={deleteSelectedVoters}>
+                Delete Selected Voters
+            </button>
         </>
     );
 };
