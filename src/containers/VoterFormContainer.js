@@ -8,15 +8,20 @@ import { addVoter } from "../actions/voters";
 export const VoterFormContainer = () => {
   const dispatch = useDispatch();
 
-  const voterFormActions = useMemo(() => bindActionCreators({
-    onSubmitVoter: addVoter,
-  }, dispatch), [dispatch]);
-
+  const voterFormActions = useMemo(
+    () =>
+      bindActionCreators(
+        {
+          onSubmitVoter: addVoter,
+        },
+        dispatch
+      ),
+    [dispatch]
+  );
 
   return (
     <>
       <ToolHeader title="Voter Registration Form" />
-      <p>Please enter your info and register to vote!</p>
       <VoterForm {...voterFormActions} />
     </>
   );

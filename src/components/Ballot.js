@@ -8,8 +8,8 @@ export const Ballot = ({ electionId }) => {
   const [form, setForm] = useState({}); // form as obj keyed by question.id
   const updateForm = (id, val) => {
     setForm({
-        ...form,
-        [id]: val
+      ...form,
+      [id]: val,
     });
   };
 
@@ -19,9 +19,8 @@ export const Ballot = ({ electionId }) => {
   const history = useHistory();
   const wrappedSubmit = (electionId, voterId, form) => {
     submitBallot(electionId, voterId, form);
-    history.push('/success');
+    history.push("/successVoting");
   };
-
 
   return (
     <div>
@@ -39,14 +38,20 @@ export const Ballot = ({ electionId }) => {
               <tr key={q.id}>
                 <td>{q.text}</td>
                 <td>
-                <input type="checkbox" value={form[q.id]}
-                  onChange={(e) => updateForm(q.id, e.target.checked)}/>
+                  <input
+                    type="checkbox"
+                    value={form[q.id]}
+                    onChange={(e) => updateForm(q.id, e.target.checked)}
+                  />
                 </td>
               </tr>
             ))}
         </tbody>
       </table>
-      <button type="button" onClick={() => wrappedSubmit(election.id, voterId, form)}>
+      <button
+        type="button"
+        onClick={() => wrappedSubmit(election.id, voterId, form)}
+      >
         Cast Vote
       </button>
     </div>

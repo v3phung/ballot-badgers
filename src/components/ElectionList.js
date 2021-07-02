@@ -28,10 +28,7 @@ export const ElectionList = ({
               <tr key={e.id}>
                 <td>{e.name}</td>
                 <td>
-                  <button
-                    type="button"
-                    onClick={() => navToVerifyVoter(e.id)}
-                  >
+                  <button type="button" onClick={() => navToVerifyVoter(e.id)}>
                     Vote
                   </button>
                   <button type="button" onClick={() => setElectionId(e.id)}>
@@ -41,38 +38,36 @@ export const ElectionList = ({
               </tr>
             ))}
         </tbody>
-    </table>
-      {
-    selectedElection ? (
-      <div>
+      </table>
+      {selectedElection ? (
         <div>
-          <ToolHeader title={selectedElection.name + " Election Results"} />
-          <table className="custom-table">
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th>Yes</th>
-                <th>No</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {selectedElection.questions?.map((q) => (
-                <tr key={q.id}>
-                  <td>{q.text}</td>
-                  <td>{q.yesVotes}</td>
-                  <td>{selectedElection.voterIds.length - q.yesVotes}</td>
-                  <td>{selectedElection.voterIds.length}</td>
+          <div>
+            <ToolHeader title={selectedElection.name + " Election Results"} />
+            <table className="custom-table">
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Yes</th>
+                  <th>No</th>
+                  <th>Total</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {selectedElection.questions?.map((q) => (
+                  <tr key={q.id}>
+                    <td>{q.text}</td>
+                    <td>{q.yesVotes}</td>
+                    <td>{selectedElection.voterIds.length - q.yesVotes}</td>
+                    <td>{selectedElection.voterIds.length}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    ) : (
-        <div>No Result Selected</div>
-      )
-  }
+      ) : (
+        <div></div>
+      )}
     </>
   );
 };

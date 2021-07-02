@@ -21,10 +21,7 @@ export const App = () => {
   return (
     <Router>
       <Layout>
-        <PageHeader
-          title="Ballot Badgers Online Voting"
-          slogan={slogan}
-        />
+        <PageHeader title="Ballot Badgers Online Voting" slogan={slogan} />
         <Menu />
         <main>
           <Route path="/register-voter">
@@ -52,11 +49,14 @@ export const App = () => {
               <VoterVerificationContainer />
             </Provider>
           </Route>
-          <Route path="/success">
-            <Success/>
+          <Route path="/successReg">
+            <Success />
+          </Route>
+          <Route path="/successVoting">
+            <Success isVotingSuccess="true" />
           </Route>
           <Route path="/" exact>
-            <Welcome slogan={slogan}/>
+            <Welcome slogan={slogan} />
           </Route>
         </main>
         <ToolFooter companyName="Ballot Badgers Company, Inc." year="2021" />
