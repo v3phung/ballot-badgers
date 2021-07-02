@@ -4,9 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useElection } from "../hooks/useElection";
 
 export const Ballot = ({ electionId }) => {
-  // use id to get specific election
-  // maintain "form" state directly in component?
-  // if so... is array of bools?
+  //useState only for local form checkboxes
   const [form, setForm] = useState({}); // form as obj keyed by question.id
   const updateForm = (id, val) => {
     setForm({
@@ -31,8 +29,8 @@ export const Ballot = ({ electionId }) => {
       <table>
         <thead>
           <tr>
-            <th>Text</th>
-            <th>Yes?</th>
+            <th>Question</th>
+            <th>Vote Yes?</th>
           </tr>
         </thead>
         <tbody>
@@ -49,7 +47,7 @@ export const Ballot = ({ electionId }) => {
         </tbody>
       </table>
       <button type="button" onClick={() => wrappedSubmit(election.id, voterId, form)}>
-        Submit Ballot
+        Cast Vote
       </button>
     </div>
   );
