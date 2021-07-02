@@ -89,7 +89,9 @@ export const createSubmitBallotDoneAction = () =>
 export const submitBallot = (electionId, voterId, ballotForm) => {
   return (dispatch) => {
     dispatch(createSubmitBallotRequestAction());
-
+    //NOTE: what we're doing here is a bit weird... pulling down API data, modifying it in client and putting it back
+    //in real world, there should be an API route (or some other B/E service) that makes a user casting a vote more
+    //simple from F/E perspective. and more to the point... this wouldn't be atomic and would allow for race condition
     return getElectionHelper(electionId)
       .then(election => {
         //indicate this voter as having voted (shouldn't need to check first if it exists due to verification step)
