@@ -124,12 +124,12 @@
         {
           "id": 1,
           "text": "Are you tired?",
-          "yesVote": 3
+          "yesVotes": 3
         },
         {
           "id": 2,
           "text": "Are you happy?",
-          "yesVote": 2
+          "yesVotes": 2
         }
       ],
       "voterIds": [
