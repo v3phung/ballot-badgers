@@ -80,7 +80,6 @@ export const electionIdReducer = (electionId = -1, action) => {
 }
 const voterVerificationReducer = (voterId = -1, action) => {
   if (action.type === VERIFY_VOTER_DONE_ACTION) {
-    console.log(action.voterId);
     return action.voterId;
   }
   return voterId;
@@ -88,7 +87,6 @@ const voterVerificationReducer = (voterId = -1, action) => {
 
 const errorMessageReducer = (errorMessage = "", action) => {
   if (action.type === VERIFY_VOTER_DONE_ACTION) {
-    console.log(action.errorMessage);
     return action.errorMessage;
   }
   return errorMessage;

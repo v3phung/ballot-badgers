@@ -1,4 +1,5 @@
 import { useForm } from "../hooks/useForm";
+import { ToolHeader } from "./ToolHeader";
 
 export const VoterVerificationForm = ({
   electionId,
@@ -9,20 +10,12 @@ export const VoterVerificationForm = ({
     voterId: "",
   });
 
-  //   const verifyVoter = () => {
-  //     // todo, call Verify voter
-
-  //     resetForm();
-  //   };
-
-  const [form, change, resetForm] = useForm(getInitVoterVerificationForm());
+  const [form, change] = useForm(getInitVoterVerificationForm());
 
   return (
     <form>
-      <div>
-        Please enter your info to verify. {electionId}, Election {electionId}
-      </div>
-      <div>
+      <ToolHeader title="Please enter voter id to verify." />
+      <div className="view-block">
         <label htmlFor="lastName-input-verify">Voter Id: </label>
         <input
           type="text"
@@ -31,15 +24,18 @@ export const VoterVerificationForm = ({
           value={form.voterId}
           onChange={change}
         />
-      </div>
-      <div>{errorMessage && <span>{errorMessage}</span>}</div>
-      <div>
-        <button
-          type="button"
-          onClick={() => onVerifyVoter(form.voterId, electionId)}
-        >
-          Verify
-        </button>
+        <div className="error">
+          {errorMessage && <span>{errorMessage}</span>}
+        </div>
+
+        <div>
+          <button
+            type="button"
+            onClick={() => onVerifyVoter(form.voterId, electionId)}
+          >
+            Verify
+          </button>
+        </div>
       </div>
     </form>
   );
