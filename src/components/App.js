@@ -55,6 +55,9 @@ export const App = () => {
           <Route path="/successVoting">
             <Success isVotingSuccess="true" />
           </Route>
+          <Route path="/successEle">
+            <Success isEleSuccess="true" />
+          </Route>
           <Route path="/" exact>
             <Welcome slogan={slogan} />
           </Route>

@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 
 import { ToolHeader } from "./ToolHeader";
 
-export const Success = ({ isVotingSuccess }) => {
+export const Success = ({ isVotingSuccess, isEleSuccess }) => {
   const history = useHistory();
   const navToHome = () => {
     history.push("/");
@@ -17,6 +17,10 @@ export const Success = ({ isVotingSuccess }) => {
           <div>
             <p>Your vote has been counted. ✔️</p>
             <p>Thanks for doing your share! 💖</p>
+          </div>
+        ) : isEleSuccess ? (
+          <div>
+            <p>Election is created and ready for voting. ✔️</p>
           </div>
         ) : (
           <div>
