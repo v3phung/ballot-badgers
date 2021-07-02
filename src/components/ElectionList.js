@@ -60,7 +60,7 @@ export const ElectionList = ({
               </thead>
 
               <tbody>
-                {selectedElection.questions.map((q) => (
+                {selectedElection.questions?.map((q) => (
                   <tr key={q.id}>
                     <td>{q.text}</td>
                     <td>{q.yesVotes}</td>

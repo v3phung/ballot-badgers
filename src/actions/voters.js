@@ -10,6 +10,8 @@ export const CANCEL_VOTER_ACTION = "CANCEL_VOTER";
 export const VERIFY_VOTER_REQUEST_ACTION = "VERIFY_VOTER_REQUEST";
 export const VERIFY_VOTER_DONE_ACTION = "VERIFY_VOTER_DONE";
 
+export const RESET_VERIFY_VOTER_ACTION = "RESET_VERIFY_VOTER";
+
 export const createRefreshVotersRequestAction = () => ({
   type: REFRESH_VOTERS_REQUEST_ACTION,
 });
@@ -57,15 +59,12 @@ export const createVerifyVoterDoneAction = (voterId, errorMessage) => ({
 
 export const verifyVoter = (voterId, electionId) => {
   return async (dispatch) => {
-    console.log("In verifyVoter in:" + voterId + " electionId: " + electionId);
-
     dispatch(createVerifyVoterRequestAction());
 
     const voterRes = await fetch(
       "http://localhost:3060/voters/" + encodeURIComponent(voterId)
     );
     const voter = await voterRes.json();
-    console.log(voter);
 
     if (voter === undefined || voter.id === undefined) {
       return dispatch(createVerifyVoterDoneAction(-1, "Voter not found"));
@@ -129,3 +128,7 @@ export const updateVoter = (voter) => {
 };
 
 export const createCancelVoterAction = () => ({ type: CANCEL_VOTER_ACTION });
+
+export const createResetVerifyVoterAction = () => ({
+  type: RESET_VERIFY_VOTER_ACTION,
+});
