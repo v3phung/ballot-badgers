@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom'
 
-import { ToolHeader } from './ToolHeader';
+import { ToolHeader } from "./ToolHeader";
 
 export const ElectionList = ({ elections, selectedElection, onSetElectionId: setElectionId }) => {
 
