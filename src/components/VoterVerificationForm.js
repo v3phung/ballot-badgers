@@ -24,17 +24,17 @@ export const VoterVerificationForm = ({
           value={form.voterId}
           onChange={change}
         />
-        <div className="form-element error">
-          {errorMessage && <span>{errorMessage}</span>}
-        </div>
-
-        <button
-          type="button"
-          onClick={() => onVerifyVoter(form.voterId, electionId)}
-        >
-          Verify
-        </button>
       </div>
+      <div className="form-element error">
+        {errorMessage && <span>{errorMessage}</span>}
+      </div>
+
+      <button
+        type="button"
+        onClick={() => onVerifyVoter(form.voterId, electionId)}
+      >
+        Verify
+      </button>
     </form>
   );
 };
