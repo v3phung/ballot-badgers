@@ -8,6 +8,7 @@ import { PageHeader } from "./PageHeader";
 import { ToolFooter } from "./ToolFooter";
 import { Menu } from "./Menu";
 import { Success } from "./Success";
+import { Welcome } from "./Welcome";
 
 import { ElectionListContainer } from "../containers/ElectionListContainer";
 import { ElectionFormContainer } from "../containers/ElectionFormContainer";
@@ -16,12 +17,13 @@ import { VoterFormContainer } from "../containers/VoterFormContainer";
 import { VoterVerificationContainer } from "../containers/VoterVerificationContainer";
 
 export const App = () => {
+  const slogan = "Be Aware, Do your Share!";
   return (
     <Router>
       <Layout>
         <PageHeader
           title="Ballot Badgers Online Voting"
-          slogan="Be Aware, Do your Share!"
+          slogan={slogan}
         />
         <Menu />
         <main>
@@ -54,10 +56,9 @@ export const App = () => {
             <Success/>
           </Route>
           <Route path="/" exact>
-            <div>Welcome to Online Voting</div>
+            <Welcome slogan={slogan}/>
           </Route>
         </main>
-
         <ToolFooter companyName="Ballot Badgers Company, Inc." year="2021" />
       </Layout>
     </Router>

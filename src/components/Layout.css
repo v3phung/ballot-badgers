@@ -136,3 +136,7 @@ body {
   color: #d8000c;
   background-color: #ffbaba;
 }
+
+.center {
+  text-align: center;
+}

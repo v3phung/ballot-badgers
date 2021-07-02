@@ -25,9 +25,6 @@ export const VoterForm = ({onSubmitVoter}) => {
     return (
         <form>
             <div>
-                Please enter your info to register for voting!
-            </div>
-            <div>
                 <label htmlFor="first-name-input">First Name</label>
                 <input
                     type="text"

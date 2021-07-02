@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { createResetVerifyVoterAction } from './voters';
 
 export const GET_ELECTION_REQUEST_ACTION = 'GET_ELECTION_REQUEST';
 export const GET_ELECTION_DONE_ACTION = 'GET_ELECTION_DONE';
@@ -80,22 +80,21 @@ export const createGetElectionsRequestAction = () =>
 export const createGetElectionsDoneAction = (elections) =>
   ({ type: GET_ELECTIONS_DONE_ACTION, elections });
 
-export const createSubmitBallotRequestAction = (electionId, voterId) =>
-  ({ type: SUBMIT_BALLOT_REQUEST_ACTION, electionId, voterId });
+export const createSubmitBallotRequestAction = () =>
+  ({ type: SUBMIT_BALLOT_REQUEST_ACTION });
 
-export const createSubmitBallotDoneAction = (electionId, voterId) =>
-  ({ type: SUBMIT_BALLOT_DONE_ACTION, electionId, voterId });
+export const createSubmitBallotDoneAction = () =>
+  ({ type: SUBMIT_BALLOT_DONE_ACTION });
 
 export const submitBallot = (electionId, voterId, ballotForm) => {
   return (dispatch) => {
-    //technically don't NEED to pass ids to Request/Done actions, doing so imagining further dev of this project where such params would be valuable
-    dispatch(createSubmitBallotRequestAction(electionId, voterId));
+    dispatch(createSubmitBallotRequestAction());
 
     return getElectionHelper(electionId)
       .then(election => {
         //indicate this voter as having voted (shouldn't need to check first if it exists due to verification step)
         election.voterIds.push(voterId);
-        //iterate thru ballotForm and update
+        //iterate thru ballotForm's question ids
         Object.keys(ballotForm).forEach(qId => {
           //only consider incrementing count for a question voter yes for
           if(ballotForm[qId]) {
@@ -104,16 +103,16 @@ export const submitBallot = (electionId, voterId, ballotForm) => {
             })
           }
         })
-        //then PUT it back to server
+        //then PUT it back with API
         return fetch("http://localhost:3060/elections/" + encodeURIComponent(electionId), {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(election),
         })
-        //.then(res => res.json())
-        .then(() => dispatch(createSubmitBallotDoneAction(electionId, voterId)))
-        .then(() => dispatch(getElections()));
-        //also need to reset verification now!
+        .then(() => dispatch(createSubmitBallotDoneAction()))
+        .then(() => dispatch(getElections()))
+        //TODO:DM - unsure that this is right way to use a sibling file's action
+        .then(() => dispatch(createResetVerifyVoterAction()));
       });
   };
 };

@@ -30,6 +30,7 @@ export const VotersList = ({
             <table className='custom-table'>
                 <thead>
                     <tr>
+                        <th>Select</th>
                         <th onClick={() => setVoterSort('id')}>Id
                             {voterSortValue.column === "id" ?
                                 <img src={voterSortValue.sortDirection + "-arrow.png"} alt='sort-icon' className="arrow-img" />

@@ -43,7 +43,7 @@ export const VotersListContainer = () => {
 
   return (
     <>
-      <ToolHeader toolHeader="Registered Voters List" />
+      <ToolHeader title="Registered Voters List" />
       <VotersList voters={sortStringColumns()} voterSortValue={voterSortValue} editVoterId={editVoterId} {...voterListActions} />
     </>
 
