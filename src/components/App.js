@@ -7,6 +7,7 @@ import { Layout } from "./Layout";
 import { PageHeader } from "./PageHeader";
 import { ToolFooter } from "./ToolFooter";
 import { Menu } from "./Menu";
+import { Success } from "./Success";
 
 import { ElectionListContainer } from "../containers/ElectionListContainer";
 import { ElectionFormContainer } from "../containers/ElectionFormContainer";
@@ -48,6 +49,9 @@ export const App = () => {
             <Provider store={electionStore}>
               <VoterVerificationContainer />
             </Provider>
+          </Route>
+          <Route path="/success">
+            <Success/>
           </Route>
           <Route path="/" exact>
             <div>Welcome to Online Voting</div>

@@ -37,11 +37,6 @@ export const electionsReducer = (elections = [], action) => {
   switch (action.type) {
     case GET_ELECTIONS_DONE_ACTION:
       return action.elections;
-    case GET_ELECTION_DONE_ACTION:
-      // splice in single election?
-      return elections;
-    case SUBMIT_BALLOT_DONE_ACTION:
-      return action.ballot;
     default:
       return elections;
   }

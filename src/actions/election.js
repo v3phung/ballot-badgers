@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 export const GET_ELECTION_REQUEST_ACTION = 'GET_ELECTION_REQUEST';
 export const GET_ELECTION_DONE_ACTION = 'GET_ELECTION_DONE';
 
@@ -16,14 +18,19 @@ export const createGetElectionRequestAction = () =>
 export const createGetElectionDoneAction = (election) =>
   ({ type: GET_ELECTION_DONE_ACTION, election });
 
+
+const getElectionHelper = (id) => {
+  return fetch("http://localhost:3060/elections/" + encodeURIComponent(id))
+    .then(res => res.json());
+}
+
 export const getElection = (id) => {
 
   return (dispatch) => {
     dispatch(createGetElectionRequestAction());
 
-    return fetch("http://localhost:3060/elections/" + encodeURIComponent(id))
-      .then(res => res.json())
-      .then(elections => dispatch(createGetElectionDoneAction(elections)));
+    return getElectionHelper()
+      .then(election => dispatch(createGetElectionDoneAction(election)));
   };
 };
 
@@ -64,24 +71,41 @@ export const createGetElectionsRequestAction = () =>
 export const createGetElectionsDoneAction = (elections) =>
   ({ type: GET_ELECTIONS_DONE_ACTION, elections });
 
-export const createSubmitBallotRequestAction = () =>
-  ({ type: GET_ELECTIONS_REQUEST_ACTION });
+export const createSubmitBallotRequestAction = (electionId, voterId) =>
+  ({ type: SUBMIT_BALLOT_REQUEST_ACTION, electionId, voterId });
 
-export const createSubmitBallotDoneAction = (ballot) =>
-  ({ type: GET_ELECTIONS_DONE_ACTION, ballot });
+export const createSubmitBallotDoneAction = (electionId, voterId) =>
+  ({ type: SUBMIT_BALLOT_DONE_ACTION, electionId, voterId });
 
-export const submitBallot = (ballot) => {
-
+export const submitBallot = (electionId, voterId, ballotForm) => {
   return (dispatch) => {
-    dispatch(createSubmitBallotRequestAction());
+    //technically don't NEED to pass ids to Request/Done actions, doing so imagining further dev of this project where such params would be valuable
+    dispatch(createSubmitBallotRequestAction(electionId, voterId));
 
-    return fetch("http://localhost:3060/elections", { //what path to use??
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(ballot)
-
-    }).then(res => res.json())
-      .then(ballot => dispatch(createSubmitBallotDoneAction(ballot)));
+    return getElectionHelper(electionId)
+      .then(election => {
+        //indicate this voter as having voted (shouldn't need to check first if it exists due to verification step)
+        election.voterIds.push(voterId);
+        //iterate thru ballotForm and update
+        Object.keys(ballotForm).forEach(qId => {
+          //only consider incrementing count for a question voter yes for
+          if(ballotForm[qId]) {
+            election.questions.forEach(question => {
+              if(question.id === Number(qId)) question.yesVotes++;
+            })
+          }
+        })
+        //then PUT it back to server
+        return fetch("http://localhost:3060/elections/" + encodeURIComponent(electionId), {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(election),
+        })
+        //.then(res => res.json())
+        .then(() => dispatch(createSubmitBallotDoneAction(electionId, voterId)))
+        .then(() => dispatch(getElections()));
+        //also need to reset verification now!
+      });
   };
 };
 

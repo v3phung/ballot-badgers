@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import { useElection } from "../hooks/useElection";
 
@@ -7,9 +8,22 @@ export const Ballot = ({ electionId }) => {
   // maintain "form" state directly in component?
   // if so... is array of bools?
   const [form, setForm] = useState({}); // form as obj keyed by question.id
+  const updateForm = (id, val) => {
+    setForm({
+        ...form,
+        [id]: val
+    });
+  };
 
-  const { elections, submitBallot } = useElection();
+  const { elections, voterId, submitBallot } = useElection();
   const election = elections.find((e) => e.id === Number(electionId));
+
+  const history = useHistory();
+  const wrappedSubmit = (electionId, voterId, form) => {
+    submitBallot(electionId, voterId, form);
+    history.push('/success');
+  };
+
 
   return (
     <div>
@@ -27,17 +41,14 @@ export const Ballot = ({ electionId }) => {
               <tr key={q.id}>
                 <td>{q.text}</td>
                 <td>
-                  <input
-                    type="checkbox"
-                    value={form[q.id]}
-                    onChange={() => setForm()}
-                  />
+                <input type="checkbox" value={form[q.id]}
+                  onChange={(e) => updateForm(q.id, e.target.checked)}/>
                 </td>
               </tr>
             ))}
         </tbody>
       </table>
-      <button type="button" onClick={() => submitBallot(form)}>
+      <button type="button" onClick={() => wrappedSubmit(election.id, voterId, form)}>
         Submit Ballot
       </button>
     </div>

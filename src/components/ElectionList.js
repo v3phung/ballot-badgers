@@ -12,8 +12,8 @@ export const ElectionList = ({ elections }) => {
   };
 
   const history = useHistory();
-  const navToBallot = (electionId) => {
-    history.push(`/elections/${electionId}`);
+  const navToVerify = (electionId) => {
+    history.push(`/elections/${electionId}/verifyVoter`);
   };
 
   return (
@@ -23,8 +23,7 @@ export const ElectionList = ({ elections }) => {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Vote</th>
-            <th>Results</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -33,11 +32,9 @@ export const ElectionList = ({ elections }) => {
               <tr key={e.id}>
                 <td>{e.name}</td>
                 <td>
-                  <button type="button" onClick={() => navToBallot(e.id)}>
-                    Vote Now
+                  <button type="button" onClick={() => navToVerify(e.id)}>
+                    Vote
                   </button>
-                </td>
-                <td>
                   <button type="button" onClick={() => getElection(e.id)}>
                     View Results
                   </button>
@@ -47,7 +44,7 @@ export const ElectionList = ({ elections }) => {
         </tbody>
 
         <tbody>
-          {showResult.questions.map((q) => (
+          {showResult.questions?.map((q) => (
             <tr>
               <td>{q.text}</td>
               <td>{q.yesVotes}</td>
