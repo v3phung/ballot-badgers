@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import { useForm } from "../hooks/useForm";
 import { ToolHeader } from "./ToolHeader";
 import { useHistory } from "react-router-dom";
@@ -7,6 +9,7 @@ export const ElectionForm = ({
   onAddQuestion: addQuestion,
   questions,
 }) => {
+  const history = useHistory();
   const getInitElectionForm = () => ({
     name: "",
     currentQuestion: "",
@@ -27,6 +30,7 @@ export const ElectionForm = ({
     addElection(finalElectionForm);
     history.push("/successEle");
     resetElectionForm();
+    history.push("/elections");
   };
 
   return (
