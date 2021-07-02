@@ -1,9 +1,15 @@
-export const VoterViewRow = ({voter, onEditVoter: editVoter, onDeleteVoter }) => {
+export const VoterViewRow =
+    ({voter, onEditVoter: editVoter, onDeleteVoter, onToggleSelectedVoter }) => {
 
     const deleteVoter = () => onDeleteVoter(voter.id);
 
     return  (
+
         <tr>
+            <td><input
+                type="checkbox"
+                onClick={() => onToggleSelectedVoter(voter.id)}
+            /></td>
             <td>{voter.id}</td>
             <td>{voter.firstName}</td>
             <td>{voter.lastName}</td>
@@ -21,5 +27,5 @@ export const VoterViewRow = ({voter, onEditVoter: editVoter, onDeleteVoter }) =>
                 </button>
             </td>
         </tr>
-    )
+    );
 };

@@ -1,34 +1,24 @@
 {
   "voters": [
     {
-      "firstName": "John Q",
-      "lastName": "Jones",
-      "address": "123 Main St",
-      "city": "Santa Clara, CA",
-      "birthday": "12-12-1995",
-      "email": "johnq@citizen.org",
-      "phoneNumber": "123-456-7890",
-      "id": 1
+      "firstName": "ABC",
+      "lastName": "asdaskjl",
+      "address": "123 asdjkalsk",
+      "city": "alskjdlaskj",
+      "birthday": "1/23/2003",
+      "email": "vihusfd@.com",
+      "phoneNumber": "111-111-1111",
+      "id": 6
     },
     {
-      "firstName": "vi",
-      "lastName": "phung",
-      "address": "1232 B St",
-      "city": "Poway",
-      "birthday": "2-2-2004",
-      "email": "vp@abc.com",
-      "phoneNumber": "123-455-1234",
-      "id": 4
-    },
-    {
-      "firstName": "badger",
-      "lastName": "cute",
-      "address": "344 forest st",
-      "city": "forrest zone",
-      "birthday": "5-1-2021",
-      "email": "badger@contactme.com",
-      "phoneNumber": "111-223-1245",
-      "id": 5
+      "firstName": "sdasd",
+      "lastName": "fghfg",
+      "address": "fghfgh",
+      "city": "sdfsd",
+      "birthday": "mghjg",
+      "email": "rtert",
+      "phoneNumber": "fghfgh",
+      "id": 7
     }
   ],
   "elections": [
