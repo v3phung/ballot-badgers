@@ -6,7 +6,7 @@ export const Welcome = ({slogan}) => {
       <ToolHeader title={"Welcome!"} />
       <div className="center">
         <img src="/badger.png" />
-        <p>Join Benji and her ballot badger buddies by voting.</p>
+        <p>Join Bella and her ballot badger buddies by voting.</p>
         <p>{slogan}</p>
       </div>
     </>
