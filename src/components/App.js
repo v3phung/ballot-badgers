@@ -45,7 +45,7 @@ export const App = () => {
               <ElectionListContainer />
             </Provider>
           </Route>
-          <Route path="/elections/:electionId/verifyVoter">
+          <Route path="/elections/:electionId">
             <Provider store={electionStore}>
               <VoterVerificationContainer />
             </Provider>
