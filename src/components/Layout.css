@@ -115,18 +115,10 @@ body {
   align-items: center;
 }
 
-/* .custom-table {
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-}
 
-
-
-.custom-table > thead > tr > th,
-.custom-table > tbody > tr > td {
-  padding:0.5rem;
-} */
+.custom-table > thead > tr > th:hover{
+  color:blue;
+} 
 
 .election-name-disp,
 .election-questions-disp {

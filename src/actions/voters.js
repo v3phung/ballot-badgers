@@ -10,6 +10,12 @@ export const CANCEL_VOTER_ACTION = "CANCEL_VOTER";
 export const VERIFY_VOTER_REQUEST_ACTION = "VERIFY_VOTER_REQUEST";
 export const VERIFY_VOTER_DONE_ACTION = "VERIFY_VOTER_DONE";
 
+export const SORT_VOTER_TYPE_ACTION = "SORT_VOTER_TYPE";
+
+export const createSortVoterTypeAction = (column) => ({
+  type: SORT_VOTER_TYPE_ACTION, column
+});
+
 export const createRefreshVotersRequestAction = () => ({
   type: REFRESH_VOTERS_REQUEST_ACTION,
 });

@@ -12,6 +12,7 @@ import {
   EDIT_VOTER_ACTION,
   CANCEL_VOTER_ACTION,
   VERIFY_VOTER_DONE_ACTION,
+  SORT_VOTER_TYPE_ACTION
 } from "../actions/voters";
 
 export const votersReducer = (voters = [], action) => {
@@ -94,6 +95,26 @@ const errorMessageReducer = (errorMessage = "", action) => {
   return errorMessage;
 };
 
+
+const voterSortValueReducer = (voterSortValue = { column: "id", sortDirection: "up" }, action) => {
+  if (action.type === SORT_VOTER_TYPE_ACTION) {
+    if (action.column === voterSortValue.column) {
+      const newSortDirection = voterSortValue.sortDirection === "up" ? "down" : "up"
+      return {
+        ...voterSortValue,
+        sortDirection: newSortDirection,
+      }
+    }
+    else {
+      return {
+        column: action.column,
+        sortDirection: "up"
+      }
+    }
+  }
+  return voterSortValue
+}
+
 export const reducer = combineReducers({
   elections: electionsReducer,
   questions: questionsReducer,
@@ -102,4 +123,5 @@ export const reducer = combineReducers({
   errorMessage: errorMessageReducer,
   editVoterId: editVoterReducer,
   electionId: electionIdReducer,
+  voterSortValue: voterSortValueReducer,
 });
