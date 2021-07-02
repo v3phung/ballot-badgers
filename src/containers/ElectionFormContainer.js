@@ -1,20 +1,21 @@
 import { useMemo } from 'react';
 import { bindActionCreators } from 'redux';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { addElection } from '../actions/election';
+import { addElection, createAddElectionQuestionAction } from '../actions/election';
 import { ElectionForm } from '../components/ElectionForm';
 
 export const ElectionFormContainer = () => {
 
     const dispatch = useDispatch();
-
+    const questions = useSelector(state => state.questions)
     const electionFormActions = useMemo(() => bindActionCreators({
-        onAddElection: addElection
+        onAddElection: addElection,
+        onAddQuestion: createAddElectionQuestionAction,
     }, dispatch), [dispatch])
 
     return (
-        <ElectionForm {...electionFormActions} />
+        <ElectionForm questions={questions} {...electionFormActions} />
     )
 
 

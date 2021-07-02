@@ -25,34 +25,34 @@
     {
       "id": 1,
       "name": "Foo",
-      "voterIds": [],
+      "voterIds": [1],
       "questions": [
         {
           "id": 1,
           "text": "Do you like dogs?",
-          "yesVotes": 50
+          "yesVotes": 1
         },
         {
           "id": 2,
           "text": "Do you like cats?",
-          "yesVotes": 42
+          "yesVotes": 0
         }
       ]
     },
     {
       "id": 2,
       "name": "Bar",
-      "voterIds": [],
+      "voterIds": [1,2],
       "questions": [
         {
           "id": 3,
           "text": "Do you like nature?",
-          "yesVotes": 93
+          "yesVotes": 1
         },
         {
           "id": 4,
           "text": "Do you like food?",
-          "yesVotes": 100
+          "yesVotes": 2
         }
       ]
     },
@@ -72,6 +72,40 @@
       ],
       "voterIds": [],
       "id": 3
+    },
+    {
+      "name": "cccc",
+      "questions": [
+        {
+          "id": 1,
+          "text": "asdasd",
+          "yesVote": 0
+        },
+        {
+          "id": 2,
+          "text": "asdasdasd",
+          "yesVote": 0
+        }
+      ],
+      "voterIds": [],
+      "id": 4
+    },
+    {
+      "name": "test ",
+      "questions": [
+        {
+          "id": 1,
+          "text": "add quesiton",
+          "yesVotes": 0
+        },
+        {
+          "id": 2,
+          "text": "add quesiton2",
+          "yesVotes": 0
+        }
+      ],
+      "voterIds": [],
+      "id": 5
     }
   ]
 }
