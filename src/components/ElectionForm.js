@@ -1,22 +1,20 @@
-import { useElectionForm } from '../hooks/useElectionForm';
+import { useForm } from '../hooks/useForm';
 import { ToolHeader } from './ToolHeader';
 
-export const ElectionForm = ({ onAddElection: addElection }) => {
+export const ElectionForm = ({ onAddElection: addElection, onAddQuestion: addQuestion, questions }) => {
     const getInitElectionForm = () => ({
         name: '',
         currentQuestion: '',
-        questions: [],
     })
 
-    const [electionForm, change, resetElectionForm, addQuestion] = useElectionForm(getInitElectionForm());
+    const [electionForm, change, resetElectionForm] = useForm(getInitElectionForm());
 
     const submitElection = () => {
         const finalElectionForm = {
             name: electionForm.name,
-            questions: electionForm.questions,
+            questions: questions,
             voterIds: []
         }
-        console.log(finalElectionForm);
         addElection(finalElectionForm);
         resetElectionForm();
     }
@@ -31,7 +29,7 @@ export const ElectionForm = ({ onAddElection: addElection }) => {
                 <div className='election-questions-disp'>
                     <ul>
                         {
-                            electionForm.questions.map(c => (
+                            questions.map(c => (
                                 <li key={c.id}>{c.text}</li>
                             ))
                         }
@@ -45,9 +43,9 @@ export const ElectionForm = ({ onAddElection: addElection }) => {
                 </div>
                 <div>
                     <label htmlFor='question-input'>Add Question: </label>
-                    <input type='text' id='question-input' name='currentQuestion' value={electionForm.currentQuestion} onChange={change}></input>
+                    <input type='text' id='question-input' name='currentQuestion' onChange={change}></input>
                 </div>
-                <button type='button' onClick={addQuestion} >Add Question</button>
+                <button type='button' onClick={() => addQuestion(electionForm.currentQuestion)} >Add Question</button>
                 <button type='button' onClick={submitElection} >Create Election</button>
             </form>
         </>

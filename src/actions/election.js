@@ -10,6 +10,15 @@ export const ADD_ELECTION_DONE_ACTION = 'ADD_ELECTION_DONE';
 export const SUBMIT_BALLOT_REQUEST_ACTION = 'SUBMIT_BALLOT_REQUEST';
 export const SUBMIT_BALLOT_DONE_ACTION = 'SUBMIT_BALLOT_DONE';
 
+export const ADD_ELECTION_QUESTION_ACTION = "ADD_ELECTION_QUESTION";
+export const GET_ELECTION_ID_ACTION = "GET_ELECTION_ID";
+
+export const createAddElectionQuestionAction = (question) =>
+  ({ type: ADD_ELECTION_QUESTION_ACTION, question });
+
+export const createGetElectionIdAction = (electionId) =>
+  ({ type: GET_ELECTION_ID_ACTION, electionId });
+
 export const createGetElectionRequestAction = () =>
   ({ type: GET_ELECTION_REQUEST_ACTION });
 

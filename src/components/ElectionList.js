@@ -1,15 +1,8 @@
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 
 import { ToolHeader } from './ToolHeader';
 
-export const ElectionList = ({ elections }) => {
-    const [showResult, setShowResult] = useState(-1);
-
-    const getElection = (id) => {
-        const currElection = elections.filter(c => c.id === id);
-        setShowResult(currElection[0]);
-    }
+export const ElectionList = ({ elections, selectedElection, onSetElectionId: setElectionId }) => {
 
     const history = useHistory();
     const navToBallot = (electionId, voterId) => {
@@ -32,16 +25,16 @@ export const ElectionList = ({ elections }) => {
                         <tr key={e.id}>
                             <td>{e.name}</td>
                             <td><button type='button' onClick={() => navToBallot(e.id, 2)}>Vote Now</button></td>
-                            <td><button type='button' onClick={() => getElection(e.id)}>View Results</button></td>
+                            <td><button type='button' onClick={() => setElectionId(e.id)}>View Results</button></td>
                         </tr>
                     ))}
                 </tbody>
 
             </table>
-            {
-                showResult !== -1 ?
+            {selectedElection ? (
+                <div>
                     <div>
-                        <ToolHeader title={showResult.name + " Election Results"} />
+                        <ToolHeader title={selectedElection.name + " Election Results"} />
                         <table className='custom-table'>
                             <thead>
                                 <tr>
@@ -54,12 +47,12 @@ export const ElectionList = ({ elections }) => {
 
                             <tbody>
                                 {
-                                    showResult.questions.map(q => (
-                                        <tr>
+                                    selectedElection.questions.map(q => (
+                                        <tr key={q.id}>
                                             <td>{q.text}</td>
                                             <td>{q.yesVotes}</td>
-                                            <td>{showResult.voterIds.length - q.yesVotes}</td>
-                                            <td>{showResult.voterIds.length}</td>
+                                            <td>{selectedElection.voterIds.length - q.yesVotes}</td>
+                                            <td>{selectedElection.voterIds.length}</td>
                                         </tr>
                                     ))
                                 }
@@ -67,10 +60,14 @@ export const ElectionList = ({ elections }) => {
 
                         </table>
                     </div>
+                </div>
+            ) :
+                <div>
+                    No Result Selected
+                </div>
 
-                    :
-                    null
             }
+
         </>
     )
 };
