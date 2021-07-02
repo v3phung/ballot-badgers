@@ -13,9 +13,9 @@ export const VoterVerificationForm = ({
   const [form, change] = useForm(getInitVoterVerificationForm());
 
   return (
-    <form>
+    <form className="custom-form">
       <ToolHeader title="Please enter voter id to verify." />
-      <div className="view-block">
+      <div className="form-element">
         <label htmlFor="lastName-input-verify">Voter Id: </label>
         <input
           type="text"
@@ -24,18 +24,16 @@ export const VoterVerificationForm = ({
           value={form.voterId}
           onChange={change}
         />
-        <div className="error">
+        <div className="form-element error">
           {errorMessage && <span>{errorMessage}</span>}
         </div>
 
-        <div>
-          <button
-            type="button"
-            onClick={() => onVerifyVoter(form.voterId, electionId)}
-          >
-            Verify
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => onVerifyVoter(form.voterId, electionId)}
+        >
+          Verify
+        </button>
       </div>
     </form>
   );
